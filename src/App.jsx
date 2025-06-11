@@ -1,14 +1,13 @@
-// src/App.jsx
 import Hero from "./sections/Hero";
 import Steps from "./sections/Steps";
-
+import Approach from "./sections/Approach";
 
 function App() {
   return (
     <div>
       <Hero />
       <Steps />
-      {/* Weitere Sections folgen hier */}
+      <Approach />
     </div>
   );
 }
