@@ -7,12 +7,14 @@ import Why from "./sections/Why";
 import Contact from "./sections/Contact";
 import Certificate from "./sections/Certificate";
 import Footer from "./components/Footer";
+import CookieBanner from "./components/CookieBanner";
 
 
 function App() {
   return (
     <div className="font-sans antialiased text-gray-900">
       <Navbar />
+      <CookieBanner />
       <Hero />
       <Steps />
       <Approach />
