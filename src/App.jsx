@@ -6,6 +6,8 @@ import Method from "./sections/Method";
 import Why from "./sections/Why";
 import Contact from "./sections/Contact";
 import Certificate from "./sections/Certificate";
+import Footer from "./components/Footer";
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       <Why />
       <Contact />
       <Certificate />
+      <Footer />
     </div>
   );
 }
