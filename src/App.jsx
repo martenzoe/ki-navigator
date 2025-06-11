@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import Steps from "./sections/Steps";
 import Approach from "./sections/Approach";
@@ -9,6 +10,7 @@ import Certificate from "./sections/Certificate";
 function App() {
   return (
     <div className="font-sans antialiased text-gray-900">
+      <Navbar />
       <Hero />
       <Steps />
       <Approach />

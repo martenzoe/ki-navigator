@@ -7,3 +7,12 @@ html {
 .clip-half-arc {
     clip-path: ellipse(120% 100% at 50% 100%);
   }
+
+  /* in index.css oder tailwind.css */
+.clip-polygon {
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
