@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
-import Steps from "./sections/Steps";
 import Approach from "./sections/Approach";
 import Method from "./sections/Method";
 import Why from "./sections/Why";
@@ -16,9 +15,10 @@ function App() {
       <Navbar />
       <CookieBanner />
       <Hero />
-      <Steps />
-      <Approach />
+      
+      
       <Method />
+      <Approach />
       <Why />
       <Contact />
       <Certificate />
