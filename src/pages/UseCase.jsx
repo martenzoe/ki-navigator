@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import usecaseHeader from "../assets/usecase-header.jpeg";
 import UseCaseStatusQuo from "../sections/UseCaseStatusQuo";
 import UseCasePilotprojekt from "../sections/UseCasePilotprojekt";
+import UseCaseResults from "../sections/UseCaseResults";
+
 
 
 export default function UseCase() {
@@ -47,6 +49,7 @@ export default function UseCase() {
       {/* Status Quo Section */}
       <UseCaseStatusQuo />
       <UseCasePilotprojekt />
+      <UseCaseResults />
     </>
   );
 }
