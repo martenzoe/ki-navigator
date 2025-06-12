@@ -1,20 +1,24 @@
 import { useEffect } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
 import usecaseHeader from "../assets/usecase-header.jpeg";
+
 import UseCaseStatusQuo from "../sections/UseCaseStatusQuo";
 import UseCasePilotprojekt from "../sections/UseCasePilotprojekt";
 import UseCaseResults from "../sections/UseCaseResults";
 import UseCaseImprovements from "../sections/UseCaseImprovements";
-
-
-
+import Contact from "../sections/Contact"; // Wichtig: Section, nicht Page-Version
 
 export default function UseCase() {
   useEffect(() => {
-    window.scrollTo(0, 0); // Seite beim Aufruf nach oben scrollen
+    window.scrollTo(0, 0);
   }, []);
 
   return (
     <>
+      <Navbar />
+
       {/* Hero Section */}
       <section className="relative bg-black text-white">
         <div className="absolute inset-0">
@@ -35,11 +39,14 @@ export default function UseCase() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button className="bg-white text-black px-6 py-3 rounded hover:bg-gray-200 transition">
-              Mehr erfahren
-            </button>
             <a
-              href="/#kontakt"
+              href="#pilotprojekt"
+              className="bg-white text-black px-6 py-3 rounded hover:bg-gray-200 transition"
+            >
+              Mehr erfahren
+            </a>
+            <a
+              href="#kontakt"
               className="bg-gray-700 text-white px-6 py-3 rounded hover:bg-gray-600 transition"
             >
               Termin buchen
@@ -48,11 +55,13 @@ export default function UseCase() {
         </div>
       </section>
 
-      {/* Status Quo Section */}
+      {/* Inhaltliche Abschnitte */}
       <UseCaseStatusQuo />
       <UseCasePilotprojekt />
       <UseCaseResults />
       <UseCaseImprovements />
+      <Contact />
+      <Footer />
     </>
   );
 }
