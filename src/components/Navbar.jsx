@@ -40,7 +40,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 font-bold text-lg">
-          <img src={logo} alt="Logo" className="h-12 md:h-14 w-auto" />
+          <img src={logo} alt="Logo" className="h-16 md:h-19 w-auto" />
         </Link>
 
         {/* Desktop Navigation */}
