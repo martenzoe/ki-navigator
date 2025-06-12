@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
 
@@ -8,44 +8,52 @@ const navItems = [
   { label: "Ansatz", href: "#ansatz" },
   { label: "Arbeitsweise", href: "#arbeitsweise" },
   { label: "Warum", href: "#warum" },
-  { label: "Kontakt", href: "#kontakt" },
   { label: "Use Case", href: "/usecase" },
+  { label: "GEO", href: "/geo" },
+  { label: "Kontakt", href: "#kontakt" },
+
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const isExternal = (href) => href.startsWith("/");
+
+  const handleClose = () => setIsOpen(false);
+
+  const renderNavItem = (item) =>
+    isExternal(item.href) ? (
+      <Link
+        key={item.href}
+        to={item.href}
+        onClick={handleClose}
+        className="text-gray-800 hover:text-gray-600 transition text-sm font-medium"
+      >
+        {item.label}
+      </Link>
+    ) : (
+      <a
+        key={item.href}
+        href={item.href}
+        onClick={handleClose}
+        className="text-gray-800 hover:text-gray-600 transition text-sm font-medium"
+      >
+        {item.label}
+      </a>
+    );
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#start" className="flex items-center gap-2 font-bold text-lg">
+        <Link to="/" className="flex items-center gap-2 font-bold text-lg">
           <img src={logo} alt="Logo" className="h-12 md:h-14 w-auto" />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8">
-          {navItems.map((item) =>
-            isExternal(item.href) ? (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="text-gray-800 hover:text-gray-600 transition text-sm font-medium"
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-gray-800 hover:text-gray-600 transition text-sm font-medium"
-              >
-                {item.label}
-              </a>
-            )
-          )}
+          {navItems.map(renderNavItem)}
         </div>
 
         {/* Mobile Burger Icon */}
@@ -60,28 +68,8 @@ export default function Navbar() {
 
       {/* Mobile Navigation Panel */}
       {isOpen && (
-        <div className="md:hidden bg-white px-4 pb-4 shadow-md">
-          {navItems.map((item) =>
-            isExternal(item.href) ? (
-              <Link
-                key={item.href}
-                to={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block py-2 text-gray-800 hover:text-gray-600 text-sm font-medium"
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block py-2 text-gray-800 hover:text-gray-600 text-sm font-medium"
-              >
-                {item.label}
-              </a>
-            )
-          )}
+        <div className="md:hidden bg-white px-4 pb-4 shadow-md space-y-2">
+          {navItems.map(renderNavItem)}
         </div>
       )}
     </header>
