@@ -1,47 +1,39 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
+import { scrollToId } from "../utils/scrollToId";
 
 const navItems = [
-  { label: "Start", href: "#start" },
-  { label: "Ansatz", href: "#ansatz" },
-  { label: "Arbeitsweise", href: "#arbeitsweise" },
-  { label: "Warum", href: "#warum" },
+  { label: "Start", href: "start" },
+  { label: "Ansatz", href: "ansatz" },
+  { label: "Arbeitsweise", href: "arbeitsweise" },
+  { label: "Warum", href: "warum" },
   { label: "Use Case", href: "/usecase" },
   { label: "GEO", href: "/geo" },
-  { label: "Kontakt", href: "#kontakt" },
-
+  { label: "Kontakt", href: "kontakt" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation();
 
-  const isExternal = (href) => href.startsWith("/");
-
-  const handleClose = () => setIsOpen(false);
-
-  const renderNavItem = (item) =>
-    isExternal(item.href) ? (
-      <Link
-        key={item.href}
-        to={item.href}
-        onClick={handleClose}
-        className="text-gray-800 hover:text-gray-600 transition text-sm font-medium"
-      >
-        {item.label}
-      </Link>
-    ) : (
-      <a
-        key={item.href}
-        href={item.href}
-        onClick={handleClose}
-        className="text-gray-800 hover:text-gray-600 transition text-sm font-medium"
-      >
-        {item.label}
-      </a>
-    );
+  const handleNavClick = (item) => {
+    setIsOpen(false);
+    if (item.href.startsWith("/")) {
+      // Externe Seiten wie /usecase, /geo
+      navigate(item.href);
+    } else {
+      // Interne Sections
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => scrollToId(item.href), 300);
+      } else {
+        scrollToId(item.href);
+      }
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -53,7 +45,15 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8">
-          {navItems.map(renderNavItem)}
+          {navItems.map((item) => (
+            <button
+              key={item.href}
+              onClick={() => handleNavClick(item)}
+              className="text-gray-800 hover:text-gray-600 transition text-sm font-medium"
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
 
         {/* Mobile Burger Icon */}
@@ -69,7 +69,15 @@ export default function Navbar() {
       {/* Mobile Navigation Panel */}
       {isOpen && (
         <div className="md:hidden bg-white px-4 pb-4 shadow-md space-y-2">
-          {navItems.map(renderNavItem)}
+          {navItems.map((item) => (
+            <button
+              key={item.href}
+              onClick={() => handleNavClick(item)}
+              className="block w-full text-left py-2 text-gray-800 hover:text-gray-600 text-sm font-medium"
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
       )}
     </header>
