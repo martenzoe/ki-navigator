@@ -7,11 +7,11 @@ export default function Contact() {
         </h2>
 
         <p className="text-center text-gray-700 mb-8">
-          Du hast Fragen, möchtest ein Projekt besprechen oder brauchst eine erste Einschätzung? Füll das Formular aus – ich melde mich zeitnah zurück.
+          Du hast Fragen, möchtest ein Projekt besprechen oder brauchst eine erste Einschätzung? Füll das Formular aus, ich melde mich zeitnah zurück.
         </p>
 
         <form
-          action="https://formspree.io/f/xrbkqzaj"
+          action="https://formspree.io/f/mldnbwrp"
           method="POST"
           className="space-y-6 bg-white p-8 rounded-lg shadow-md"
         >
