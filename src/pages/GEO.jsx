@@ -8,6 +8,9 @@ import GeoMention from "../sections/GeoMention";
 import GeoAgentur from "../sections/GeoAgentur";
 import GeoPlan from "../sections/GeoPlan"; // Import GeoPlan if needed
 import GeoTodoList from "../sections/GeoTodoList";
+import GeoFit from "../sections/GeoFit";
+import GeoPricing from "../sections/GeoPricing";
+import GeoWheel from "../sections/GeoWheel";
 
 
 
@@ -62,6 +65,9 @@ export default function GEO() {
       <GeoAgentur />
       <GeoPlan />
       <GeoTodoList />
+      <GeoFit />
+      <GeoPricing />
+      <GeoWheel />
     
         {/* Kontakt Section */}
       <Contact />
