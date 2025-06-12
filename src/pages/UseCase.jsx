@@ -3,6 +3,8 @@ import usecaseHeader from "../assets/usecase-header.jpeg";
 import UseCaseStatusQuo from "../sections/UseCaseStatusQuo";
 import UseCasePilotprojekt from "../sections/UseCasePilotprojekt";
 import UseCaseResults from "../sections/UseCaseResults";
+import UseCaseImprovements from "../sections/UseCaseImprovements";
+
 
 
 
@@ -50,6 +52,7 @@ export default function UseCase() {
       <UseCaseStatusQuo />
       <UseCasePilotprojekt />
       <UseCaseResults />
+      <UseCaseImprovements />
     </>
   );
 }
