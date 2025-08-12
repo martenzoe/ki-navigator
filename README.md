@@ -1,23 +1,28 @@
-KI Navigator
-A modern React-based website styled with Tailwind CSS, designed for fast and responsive user experiences. This project serves as the foundation for an interactive web application focused on navigation and/or AI-powered user guidance.
+# KI Navigator
 
-🚀 Features
-React as the frontend framework
+A modern React-based website styled with Tailwind CSS, designed for fast and responsive user experiences.  
+This project serves as the foundation for an interactive web application focused on navigation and/or AI-powered user guidance.
 
-Tailwind CSS for rapid, flexible, and modern styling
+---
 
-Vite for a fast development and build process
+## 🚀 Features
 
-Fully responsive layouts
+- **React** as the frontend framework  
+- **Tailwind CSS** for rapid, flexible, and modern styling  
+- **Vite** for a fast development and build process  
+- Fully responsive layouts  
+- Modular and reusable component structure  
+- Easy to customize and extend  
 
-Modular and reusable component structure
+---
 
-Easy to customize and extend
+## 📦 Installation & Setup
 
-1. 📦 Installation & Setup
-Clone the repository
+**Clone the repository:**
+```bash
 git clone https://github.com/martenzoe/ki-navigator.git
 cd ki-navigator
+
 
 2. Install dependencies
 npm install
